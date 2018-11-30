@@ -1,6 +1,6 @@
 #include<stdio.h>
 #define max 128
-int main(void)
+int main()
 {
     int c,i,j;
     int chararr[max];
