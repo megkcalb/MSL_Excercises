@@ -17,6 +17,7 @@ int main()
                 for(j=0;j<chararr[i];++j)
             putchar('*');
                 putchar('\n');
+        
     }
 return 0;
 }
