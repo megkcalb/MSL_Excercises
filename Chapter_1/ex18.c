@@ -1,10 +1,11 @@
 #include<stdio.h>
 #define MAXLINE 1000
-int getline(char line[], int max);
-int removeExtra(char s[]);
+int getline(char line[], int lim);
+int removeExtra(char chararr[]);
 int main(){
+    int len;
     char line[MAXLINE];
-    while(getline(line,MAXLINE)>0){
+    while((len=getline(line,MAXLINE))>0){
         if(removeExtra(line) > 0){
             printf("%s", line);
         }
@@ -12,27 +13,28 @@ int main(){
     return 0;
 }
 int getline(char s[],int lim){
-    int c,i,j;
-    for(i=0; (c = getchar())!= EOF && c!= '\n'; ++i)
-        if(i < lim - 2){
-        s[j]=c;
-        ++j;
-        }
+    int c,i;
+    for(i=0; i< lim - 1 && (c = getchar())!= EOF && c!= '\n'; ++i)
+        s[i]=c;
         if(c=='\n'){
-         s[j]=c;
-         ++j;
+         s[i]=c;
          ++i;
-        }
-    s[j]='\0';    
+    }
+    s[i]='\0';    
     return i;
 } 
 int removeExtra(char s[]){
     int i;
+    i=0;
     while(s[i]!='\n')
         ++i;
+        
     --i;
-    while(i>=0 || ' ' || s[i]=='\t')
-       --i;
+    while(i>0 && ((s[i]==' ') || (s[i]=='\t')))
+      --i;
+    //for(i>0;((s[i]==' ') || (s[i]=='\t'));--i)
+       
+       //printf("%d",i);
     if(i>=0){
         ++i;
         s[i]=='\n';
