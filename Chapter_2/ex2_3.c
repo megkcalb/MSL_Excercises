@@ -8,30 +8,23 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 #include<stdio.h>
 #define MAXLINE 100
-
 #define YES 1
 #define NO 0
-
 int mgetline(char line[],int maxline);
 int htoi(char s[]);
-
 int main(void)
 {
     char line[MAXLINE];
     int value;
-        
+   
     mgetline(line,MAXLINE);
     value=htoi(line);
-
     printf("The value of %s is %d",line,value);
-    
     return 0;
 }
-
 int mgetline(char s[],int lim)
 {
     int c,i;
-
     for(i=0;i<lim-1 &&(c=getchar())!=EOF && c!='\n';++i)
         s[i] =c;
     if(c=='\n')
@@ -40,10 +33,8 @@ int mgetline(char s[],int lim)
         ++i;
     }
     s[i] = '\0';
-
     return i;
 }
-
 int htoi(char s[])
 {
     int hexdigit,i,inhex,n;
@@ -54,10 +45,8 @@ int htoi(char s[])
         if(s[i] == 'x' || s[i] == 'X')
             ++i;
     }
-    
     n = 0;
     inhex = YES;
-
     for(;inhex==YES;++i)
     {
         if(s[i] >='0' && s[i] <='9')
@@ -68,7 +57,7 @@ int htoi(char s[])
             hexdigit= s[i] -'A' + 10;
         else
             inhex = NO;
-        
+   
         if(inhex == YES)
             n = 16 * n + hexdigit;
     }
