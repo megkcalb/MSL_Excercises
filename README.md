@@ -1,2 +1,2 @@
 # MSL_Excercises
-DNR excersises
+K&R book excersises
