@@ -19,6 +19,8 @@ double atof(char str[]){
     for(val = 0.0;isdigit(str[i]);++i)
         val = 10.0 * val + (str[i] - 0);
 
+    if(str[i] == '.')
+        ++i;
     for(power = 0.0;isdigit(str[i]);++i){
         val  = 10.0 * val + (str[i] - 0);
         power *= 10.0;
