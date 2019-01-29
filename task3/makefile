@@ -26,11 +26,6 @@ h:
 config:
         sudo ldconfig
 
-export:
-        
-run:
-        ./main3
-
 clean:
         -${RM} ${TARGET_LIB} 
 
