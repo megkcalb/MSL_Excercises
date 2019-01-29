@@ -8,17 +8,12 @@ RM = rm -f
 
 TARGET_LIB = libstr.so
 
-all: create link install run
+all: create
 
 create:
         $(CC) clStr.cpp $(CFLAGS) $(LDFLAGS) -o libstr.so
 
         echo -e  " >>>>>>>>>>>>>>>>>.so file created "
-
-link:
-        $(CC) main3.cpp -L. -lstr -o main3
-
-        echo  -e " >>>>>>>>>>>>>>>>> linked with the program "
 
 install: lib h config
 
@@ -31,9 +26,11 @@ h:
 config:
         sudo ldconfig
 
-
+export:
+        
 run:
         ./main3
 
 clean:
         -${RM} ${TARGET_LIB} 
+
