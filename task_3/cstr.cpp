@@ -16,10 +16,6 @@ cstr::cstr(const char * source)
     this->copy(source);
 }
 
-cstr:: ~cstr()
-{
-   delete[] str_source;
-}
 
 int cstr::copy(const char * source)
 {
@@ -63,21 +59,18 @@ int cstr::index_of(char c)
 
 char* cstr::substr(int start , int end )
 {
-	cout << "start : " << start << " end : " << end << "string length : " <<strlen(str_source);
+//	cout << "start : " << start << " end : " << end << "string length : " <<strlen(str_source);
 	if((start > strlen(str_source)) || (end > strlen(str_source))){
                         cout << " index overflow " << endl;
                         exit(0);
         }
         char* op1 = new char[end - start +2];
-        //char* op1 = (char*) malloc(end) ;
-        int i; //j ;
-       // for( i = start ,  j = 0; i <= end ; i++,j++){
-        for(i=0;start <= end; i++, start++)
-                op1[i] = str_source[start];
-                //  op1[j] = str[i];
-        // }
+        int i;
 
-        op1[i] = '\0';
+	for(i=0;start <= end; i++, start++)
+                op1[i] = str_source[start];
+
+ 	op1[i] = '\0';
 
         return op1;
 }
@@ -97,10 +90,21 @@ cstr operator+ ( cstr &str1, cstr &str2 )
 
 	source2 -> massive_copy(str1.str_source, source2 -> str_source, 0 ,  str1len);
         source2 -> massive_copy(str2.str_source, source2 -> str_source, str1len ,  str2len);
-        cout << str2.str_source << endl;
-     //   char* op = (char)source2;
-//	cout << " appended string :" << op << endl;
+
 	return *source2;
 }
+
+std::ostream& operator<< (std::ostream &out, const cstr & string)
+{
+    out << string.str_source;
+
+    return out;
+}
+
+cstr:: ~cstr()
+{
+   delete[] str_source;
+}
+
 
 
