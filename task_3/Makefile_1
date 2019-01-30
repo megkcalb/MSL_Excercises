@@ -1,0 +1,30 @@
+CC = g++
+
+CFLAGS = -fPIC -Wall
+
+LDFLAGS = -shared
+
+RM = rm -f
+
+TARGET_LIB = libcstr.so
+
+all: create
+
+create:
+        $(CC) cstr.cpp $(CFLAGS) $(LDFLAGS) -o libcstr.so
+
+        echo -e  " >>>>>>>>>>>>>>>>>.so file created "
+
+install: lib h config
+
+lib:
+        sudo cp libcstr.so /usr/lib
+
+h:
+        sudo cp cstr.h /usr/include
+
+config:
+        sudo ldconfig
+
+clean:
+        -${RM} ${TARGET_LIB} 
