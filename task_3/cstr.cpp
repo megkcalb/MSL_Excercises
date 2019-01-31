@@ -79,8 +79,8 @@ cstr operator+ ( cstr &str1, cstr &str2 )
 {
 	cstr * source2 = new cstr();
 
-	int str1len = (unsigned)strlen(str1.str_source);
-        int str2len = (unsigned)strlen(str2.str_source);
+	int str1len = (unsigned)str1.len();
+        int str2len = (unsigned)str2.len();
         
 	int totlen = str1len + str2len ;
 
