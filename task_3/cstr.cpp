@@ -75,7 +75,7 @@ char* cstr::substr(int start , int end )
         return op1;
 }
 
-cstr operator+ ( cstr &str1, cstr &str2 ) 
+cstr operator+ ( const cstr &str1, const cstr &str2 ) 
 {
 	cstr source2;
 
