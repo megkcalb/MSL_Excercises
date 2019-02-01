@@ -77,21 +77,21 @@ char* cstr::substr(int start , int end )
 
 cstr operator+ ( cstr &str1, cstr &str2 ) 
 {
-	cstr * source2 = new cstr();
+	cstr source2;
 
 	int str1len = (unsigned)str1.len();
         int str2len = (unsigned)str2.len();
         
 	int totlen = str1len + str2len ;
 
-	source2 -> str_len = totlen;
+	source2.str_len = totlen;
 
-	source2 -> str_source = new char[totlen+1];
+	source2.str_source = new char[totlen+1];
 
-	source2 -> massive_copy(str1.str_source, source2 -> str_source, 0 ,  str1len);
-        source2 -> massive_copy(str2.str_source, source2 -> str_source, str1len ,  str2len);
+	source2.massive_copy(str1.str_source, source2.str_source, 0 ,  str1len);
+        source2.massive_copy(str2.str_source, source2.str_source, str1len ,  str2len);
 
-	return *source2;
+	return source2;
 }
 
 std::ostream& operator<< (std::ostream &out, const cstr & string)
