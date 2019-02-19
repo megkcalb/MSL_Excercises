@@ -11,7 +11,7 @@ int main()
     int nSID, nKey, nSize;
     char *sRegionName;
     nKey = 1876 ;
-    nSize = 5;
+    nSize = 1;
     SharedMemory s;
     nSID = s.initSharedMemory(nKey, nSize, true);
     cout << "Shared Memory ID :: " << nSID << endl;
